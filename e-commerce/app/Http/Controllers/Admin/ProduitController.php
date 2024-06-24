@@ -104,4 +104,15 @@ class ProduitController extends Controller
     $produit = Produit::with('categorie')->findOrFail($id);
     return view('produits.show', compact('produit'));
 }
+
+public function details($id)
+{
+    $produit = Produit::with('categorie')->find($id);
+
+    if (!$produit) {
+        return redirect()->route('produits.index')->with('error', 'Produit non trouvé.');
+    }
+
+    return view('produits.details', compact('produit'));
+}
 }

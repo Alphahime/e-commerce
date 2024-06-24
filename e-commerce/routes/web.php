@@ -26,6 +26,9 @@ Route::middleware('auth:web')->group(function () {
     // Routes pour les commandes
     Route::get('/commandes', [CommandeController::class, 'index'])->name('commandes.index');
     Route::patch('/commandes/{id}/valider', [CommandeController::class, 'valider'])->name('commandes.valider');
+    Route::get('/produit/{id}', [ProduitController::class, 'details'])->name('produits.details');
+
+
 });
 
 // Routes pour les produits (admin uniquement)

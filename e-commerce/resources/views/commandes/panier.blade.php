@@ -71,6 +71,9 @@
                     <p class="text-gray-700">Prix: {{ $produit->prix }} €</p>
                     <p class="text-gray-700">Catégorie: {{ $produit->categorie->nom }}</p>
                     <p class="text-gray-700">État: {{ $produit->etat }}</p>
+                    <a href="{{ route('produits.details', $produit->id) }}" class="w-full bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded block text-center">
+                        Détails
+                    </a>
                     <form action="{{ route('panier.ajouter', $produit->id) }}" method="POST" class="mt-2">
                         @csrf
                         <button type="submit" class="w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
